@@ -4,8 +4,8 @@ import {
   FaCheckCircle,
   FaCogs,
   FaDatabase,
-  FaDownload,
   FaEnvelope,
+  FaEye,
   FaExternalLinkAlt,
   FaGithub,
   FaGraduationCap,
@@ -42,7 +42,7 @@ const STR = {
       menu: 'Toggle menu',
       github: 'GitHub Profile',
       linkedin: 'LinkedIn Profile',
-      downloadCv: 'Download CV',
+      downloadCv: 'View / Download CV',
     },
     hero: {
       badge: 'Available for Full-Stack & Web Developer Roles',
@@ -98,7 +98,7 @@ const STR = {
       menu: 'Buka/tutup menu',
       github: 'Profil GitHub',
       linkedin: 'Profil LinkedIn',
-      downloadCv: 'Unduh CV',
+      downloadCv: 'Lihat / Unduh CV',
     },
     hero: {
       badge: 'Terbuka untuk Posisi Full-Stack & Web Developer',
@@ -769,7 +769,7 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-semibold text-[#fff] bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-sky-500 shadow-lg shadow-indigo-600/30 transition-all duration-300 transform hover:-translate-y-1"
               >
-                <FaDownload className="w-5 h-5 mr-2" /> {t.nav.downloadCv}
+                <FaEye className="w-5 h-5 mr-2" /> {t.nav.downloadCv}
               </a>
               <a
                 href="#contact"
