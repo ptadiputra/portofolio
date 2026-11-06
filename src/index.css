@@ -1,16 +1,114 @@
 @import "tailwindcss";
 
+:root {
+  --page-bg: #0B0F17;
+  --text-body: #E2E8F0;
+  --glass-bg: rgba(19, 26, 41, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(99, 102, 241, 0.4);
+  --glass-glow: rgba(79, 70, 229, 0.25);
+  --nav-bg: rgba(11, 15, 23, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.05);
+  --scroll-track: #0B0F17;
+  --scroll-thumb: #1E293B;
+  --scroll-thumb-hover: #475569;
+}
+
+/* Light theme: flips custom props + Tailwind palette tokens.
+   Tailwind v4 utilities compile to var(--color-*), so overriding here recolors them all.
+   This block is unlayered → it beats Tailwind's @layer theme :root declarations. */
+html.light {
+  --page-bg: #F6F8FB;
+  --text-body: #1E293B;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(15, 23, 42, 0.1);
+  --glass-border-hover: rgba(99, 102, 241, 0.5);
+  --glass-glow: rgba(99, 102, 241, 0.2);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --nav-border: rgba(15, 23, 42, 0.08);
+  --scroll-track: #F6F8FB;
+  --scroll-thumb: #CBD5E1;
+  --scroll-thumb-hover: #94A3B8;
+
+  --color-white: #0F172A;
+  --color-slate-200: #334155;
+  --color-slate-300: #475569;
+  --color-slate-400: #64748B;
+  --color-slate-500: #64748B;
+  --color-slate-600: #334155;
+  --color-slate-700: #CBD5E1;
+  --color-slate-800: #E2E8F0;
+  --color-slate-900: #FFFFFF;
+  --color-indigo-300: #6366F1;
+  --color-indigo-400: #4F46E5;
+  --color-sky-400: #0284C7;
+  --color-purple-400: #9333EA;
+  --color-emerald-400: #059669;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: #020617;
-  color: white;
-  font-family: Inter, sans-serif;
+  background: var(--page-bg);
+  color: var(--text-body);
+  font-family: 'Inter', sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 10px 30px -10px var(--glass-glow);
+}
+
+.glass-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #818CF8 0%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
 }
